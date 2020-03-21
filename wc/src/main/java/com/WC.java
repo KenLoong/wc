@@ -26,7 +26,7 @@ public class WC {
             //判断是否有足够的参数
             if (args.length < 2) {
                 System.out.println("请输入足够的参数...");
-                return;
+                continue;
             }
             func = args[0];
             filePath = args[1];
@@ -34,7 +34,7 @@ public class WC {
             File file = new File(filePath);
             if (!file.exists()) {
                 System.out.println("你指定的文件不存在....");
-                return;
+                continue;
             }
 
             switch (func) {
