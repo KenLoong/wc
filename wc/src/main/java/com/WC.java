@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class WC {
 
@@ -12,7 +13,13 @@ public class WC {
 
     public static void main(String[] args) throws Exception {
 
-        filePath="C:\\Users\\win10\\Desktop\\测试\\看看\\hello.c";
+        String s="";
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextLine())
+            s = scanner.nextLine();
+
+        args = s.split("\\s+");
+
         //判断是否有足够的参数
         if (args.length<2){
             System.out.println("请输入足够的参数...");
