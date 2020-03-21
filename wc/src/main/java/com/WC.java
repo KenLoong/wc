@@ -14,34 +14,48 @@ public class WC {
     public static void main(String[] args) throws Exception {
 
         String s="";
-        Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNextLine())
-            s = scanner.nextLine();
 
-        args = s.split("\\s+");
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextLine())
+                s = scanner.nextLine();
 
-        //判断是否有足够的参数
-        if (args.length<2){
-            System.out.println("请输入足够的参数...");
-            return;
-        }
-        func = args[0];
-        filePath = args[1];
-        //判断文件是否存在
-        File file = new File(filePath);
-        if (!file.exists()){
-            System.out.println("你指定的文件不存在....");
-            return;
-        }
+            //-s       C:\\Users\\win10\\Desktop\\测试
+            args = s.split("\\s+");
 
-        switch (func){
-            case "-w":countWord(null,filePath);break;
-            case "-c":countChar(null,filePath);break;
-            case "-l":countLine(null,filePath);break;
-            case "-s":countDir(filePath);break;
-            case "-a":countComplex(filePath);break;
-            default:
-                System.out.println("您输入的参数有误");
+            //判断是否有足够的参数
+            if (args.length < 2) {
+                System.out.println("请输入足够的参数...");
+                return;
+            }
+            func = args[0];
+            filePath = args[1];
+            //判断文件是否存在
+            File file = new File(filePath);
+            if (!file.exists()) {
+                System.out.println("你指定的文件不存在....");
+                return;
+            }
+
+            switch (func) {
+                case "-w":
+                    countWord(null, filePath);
+                    break;
+                case "-c":
+                    countChar(null, filePath);
+                    break;
+                case "-l":
+                    countLine(null, filePath);
+                    break;
+                case "-s":
+                    countDir(filePath);
+                    break;
+                case "-a":
+                    countComplex(filePath);
+                    break;
+                default:
+                    System.out.println("您输入的参数有误");
+            }
         }
 
     }
